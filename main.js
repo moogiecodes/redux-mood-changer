@@ -20,6 +20,13 @@ $(function () {
     store.dispatch({ type: "EXCITED" });
   })
 
+  const moods = ['MIDDLE_FINGER', 'BEAR', 'CRY', 'EXCITED'];
+
+  $('#random').on('click', function () {
+    let idx = Math.floor(Math.random() * moods.length);
+    store.dispatch({ type: moods[idx] });
+  })
+
   store.subscribe(displayEmoji);
   displayEmoji();
 })
